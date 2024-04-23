@@ -1,7 +1,7 @@
 % loads in a json data file and export the position and rotation data to a csv file"
 
-json_file = "out_test.json";
-out_csv = "out.csv";
+json_file = "data/test.json";
+out_csv = "data/out.csv";
 
 % read the tracker data from the cvs file.
 fid = fopen(json_file);

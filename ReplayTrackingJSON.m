@@ -2,17 +2,20 @@ clear
 clc
 close all
 
+%% Specify Parameters
+tracker_data_file = 'data/test.json';
+video_file = 'data/D21D28 0ugmL Swarm.avi';
+
+%%
 % Create a video reader object to pull images from
-tracker_data_file = 'out_test.json';
-% tracker_data_file = "D21D28 0ugmL Swarm test.json";
+
 fid = fopen(tracker_data_file);
 raw = fread(fid, inf);
 str = char(raw');
 fclose(fid);
 tracker_data = jsondecode(str);
 
-% videoReader = VideoReader('D21D28 0ugmL Swarm.avi');
-videoReader = VideoReader('AY07HH.mp4');
+videoReader = VideoReader(video_file);
 
 % Pull the first image and convert it to a grayscale image, storead as 
 % matrix of decimal numbers from 0.0 to 1.0.

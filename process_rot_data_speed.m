@@ -115,11 +115,11 @@ function rotations = process_rot_data_speed(all_correlations, max_speed_deg, max
         speed = speed_idx - offset;
         if rot_idx < offset
             rot_idx = rot_idx + num_rot; % if the angle is "negative" shift it.
-            rot_count = rot_count - 1;
+            rot_count = rot_count + 1;
         end
         if rot_idx >= offset + num_rot
             rot_idx = rot_idx - num_rot;
-            rot_count = rot_count + 1;
+            rot_count = rot_count - 1;
         end
         rot_idxs(end + 1) = rot_idx;
         rot_counts(end + 1) = rot_count;

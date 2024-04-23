@@ -4,8 +4,8 @@ close all
 
 %% Specify Parameters:
 % video_file_name = 'AY07HH.mp4';
-video_file_name = "D21D28 0ugmL Swarm.avi"; % Video to track
-json_file_name = "test.json"; % file to save the tracking data to.
+video_file_name = "data/D21D28 0ugmL Swarm.avi"; % Video to track
+json_file_name = "data/test.json"; % file to save the tracking data to.
 search_size = 10; % number of pixels around the organoid to search. This is the maximum number of pixels the tracker thinks the organoid can move in one frame (rec 10)
 rotation_resolution_degree = 0.5; % resolution the tracker measures rotation, in degrees. All rotation values with be a multiple of this value. (rec 0.5)
 print_freq = 10; % frequency with which to print out the current frame number.

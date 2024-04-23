@@ -1,8 +1,10 @@
 % This script allows you to re-run the optimize rotations function on a
 % saved data.json file, with different speed and acceleration parameters.
 
-input_file = "test.json";
-output_file = "out_test.json";
+input_file = "data/test.json";
+output_file = "data/out_test.json";
+max_speed = 10;
+max_acc = 1;
 
 % load organoid data
 fid = fopen(input_file);
@@ -12,8 +14,6 @@ fclose(fid);
 tracker_data = jsondecode(str);
 
 % run rotation optimizer
-max_speed = 10;
-max_acc = 1;
 for i = 1:length(tracker_data.organoids)
     tic;
     tracker_correlations = {};
