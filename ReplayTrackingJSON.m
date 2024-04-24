@@ -3,8 +3,9 @@ clc
 close all
 
 %% Specify Parameters
-tracker_data_file = 'data/test.json';
-video_file = 'data/D21D28 0ugmL Swarm.avi';
+tracker_data_file = "data/test.json";
+video_file = "data/D21D28 0ugmL Swarm.avi";
+speed = 10; % Increases video speed by skiping frames. If speed = 10, then only every 10th frame is shown
 
 %%
 % Create a video reader object to pull images from
@@ -31,7 +32,9 @@ videoPlayer  = vision.VideoPlayer('Position', [10 -100 1200 1200]);
 t = 1;
 while hasFrame(videoReader)
     % get the next frame
-    videoFrame = readFrame(videoReader);
+    for i = 1:speed
+        videoFrame = readFrame(videoReader);
+    end
     videoFrame_adjust = double(imadjust(rgb2gray(videoFrame)))/255;
 
     % Insert a bounding box around the object being tracked
@@ -47,8 +50,8 @@ while hasFrame(videoReader)
         end
     end 
     step(videoPlayer, videoFrame);
-    pause(0.033)
-    t = t + 1;
+%     pause(0.033)
+    t = t + speed;
 end
 
 % cleanup
